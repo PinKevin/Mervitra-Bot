@@ -1,8 +1,7 @@
 const { MessageEmbed } = require('discord.js');
-const {
-    PREFIX,
-    botFooter,
-} = require('./bot-info');
+const { botFooter } = require('./info');
+
+const PREFIX = require('./bot-info.json').prefix;
 
 module.exports = {
     name: 'help',

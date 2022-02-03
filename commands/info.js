@@ -1,10 +1,6 @@
 const { MessageEmbed } = require('discord.js');
-const {
-    botVersion,
-    botName,
-    botAuthor,
-    botFooter,
-} = require('./bot-info');
+const botInfo = require('./bot-info.json');
+const botFooter = `${botInfo.name} - ${botInfo.version}`;
 
 module.exports = {
     name: 'info',
@@ -23,19 +19,19 @@ module.exports = {
         else {
             // apabila !info author
             if (args[1] === 'author') {
-                message.channel.send(`Bot dibuat oleh ${botAuthor}`);
+                message.channel.send(`Bot dibuat oleh ${botInfo.author}`);
             }
             // apabila !info version
             else if (args[1] === 'version') {
-                message.channel.send(`Versi bot sekarang adalah ${botVersion}`);
+                message.channel.send(`Versi bot sekarang adalah ${botInfo.version}`);
             }
             else if (args[1] === 'all') {
                 const allInfoEmbed = new MessageEmbed()
                     .setTitle('INFORMASI BOT')
                     .setDescription('Mervitra adalah bot yang siap melayani member server ini.')
-                    .addField('Nama', botName, true)
-                    .addField('Pembuat', botAuthor, true)
-                    .addField('Versi', botVersion, true)
+                    .addField('Nama', botInfo.name, true)
+                    .addField('Pembuat', botInfo.author, true)
+                    .addField('Versi', botInfo.version, true)
                     .setColor('ffffff')
                     .setFooter(botFooter);
                 message.channel.send(allInfoEmbed);
@@ -46,5 +42,6 @@ module.exports = {
             }
         }
     },
+    botFooter,
 };
 
