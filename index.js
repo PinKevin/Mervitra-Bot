@@ -19,6 +19,12 @@ client.once('ready', () => {
     console.log('Ready!');
 });
 
+client.on('ready', () => {
+    client.user.setActivity('everyone\'s heart', {
+        type: 'LISTENING',
+    }).catch(console.error);
+});
+
 client.on('message', message => {
     const args = message.content.substring(PREFIX.length).split(' ');
 
