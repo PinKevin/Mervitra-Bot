@@ -23,15 +23,18 @@ client.on('message', message => {
     const args = message.content.substring(PREFIX.length).split(' ');
 
     switch (args[0]) {
+        case 'p':
         case 'ping':
             commands.get('ping').execute(message);
             break;
+        case 'i':
         case 'info':
             commands.get('info').execute(message, args);
             break;
         case 'help':
             commands.get('help').execute(message);
             break;
+        case 'cc':
         case 'clear-chat':
             commands.get('clear-chat').execute(message, args);
             break;
