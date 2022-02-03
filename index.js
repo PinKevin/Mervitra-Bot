@@ -5,7 +5,7 @@ const { token } = JSON.parse(fs.readFileSync('./config.json'));
 
 const client = new Client;
 
-const PREFIX = '!';
+const { PREFIX } = require('./commands/bot-info');
 
 // impor command dari luar
 const commands = new Collection();
@@ -24,7 +24,17 @@ client.on('message', message => {
 
     switch (args[0]) {
         case 'ping':
-            message.reply('pong!');
+            commands.get('ping').execute(message);
+            break;
+        case 'info':
+            commands.get('info').execute(message, args);
+            break;
+        case 'help':
+            commands.get('help').execute(message);
+            break;
+        case 'clear-chat':
+            commands.get('clear-chat').execute(message, args);
+            break;
     }
 });
 
