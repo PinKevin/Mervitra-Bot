@@ -15,7 +15,7 @@ module.exports = {
                 .setTitle('Command yang bisa digunakan')
                 .addField('!info author', 'Menampilkan pembuat bot')
                 .addField('!info version', 'Menampilkan versi bot')
-                .addField('!info all-info', 'Menampilkan seluruh informasi bot')
+                .addField('!info all', 'Menampilkan seluruh informasi bot')
                 .setColor('0CECDD')
                 .setFooter(botFooter);
             message.channel.send(infoEmbed);
@@ -29,7 +29,7 @@ module.exports = {
             else if (args[1] === 'version') {
                 message.channel.send(`Versi bot sekarang adalah ${botVersion}`);
             }
-            else if (args[1] === 'all-info') {
+            else if (args[1] === 'all') {
                 const allInfoEmbed = new MessageEmbed()
                     .setTitle('INFORMASI BOT')
                     .setDescription('Mervitra adalah bot yang siap melayani member server ini.')
