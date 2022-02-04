@@ -6,14 +6,14 @@ module.exports = {
     description: 'Command untuk !ping',
     execute(message) {
         if (cdCollection.has(message.author.id)) {
-            setTimeout(() => {
-                message.reply('tunggu 10 detik lagi sebelum bermain ping-pong dengan bot!').then(msg => {
-                    msg.delete({ timeout: 1000 * 2 });
-                }).catch();
-            }, 1000 * 1.5);
+            message.reply('tunggu 10 detik lagi sebelum bermain ping-pong dengan bot!').then(msg => {
+                msg.delete({ timeout: 1000 * 2 });
+            }).catch();
         }
         else {
-            message.reply('pong!');
+            setTimeout(() => {
+                message.reply('pong!');
+            }, 300);
             cdCollection.set(message.author.id);
             setTimeout(() => {
                 cdCollection.delete(message.author.id);
