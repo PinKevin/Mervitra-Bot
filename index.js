@@ -8,7 +8,7 @@ const client = new Client;
 const PREFIX = require('./commands/bot-info.json').prefix;
 
 // impor command dari luar
-const commands = new Collection();
+const commands = new Collection;
 const files = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of files) {
     const command = require(`./commands/${file}`);
