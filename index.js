@@ -6,7 +6,7 @@ const { token } = JSON.parse(fs.readFileSync('./config.json'));
 
 const client = new Client;
 
-const PREFIX = require('./commands/bot-info.json').prefix;
+const PREFIX = require('./bot-info/general-info.json').prefix;
 
 // impor command dari luar
 const commands = new Collection;

@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const botInfo = require('./bot-info.json');
+const botInfo = require('../bot-info/general-info.json');
 const botFooter = `${botInfo.name} - ${botInfo.version}`;
 
 module.exports = {
