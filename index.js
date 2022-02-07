@@ -1,3 +1,4 @@
+// 'use strict';
 const { Client, Collection } = require('discord.js');
 
 const fs = require('fs');
@@ -15,15 +16,19 @@ for (const file of files) {
     commands.set(command.name, command);
 }
 
-client.once('ready', () => {
-    console.log('Ready!');
-});
-
 client.on('ready', () => {
+    console.log('Ready!');
+
     client.user.setActivity('everyone\'s heart', {
         type: 'LISTENING',
     }).catch(console.error);
 });
+
+// client.on('guildMemberAdd', member => {
+//     const lobbyChannel = member.guild.channels.cache.find(ch => ch.name === 'lobby');
+//     if (!lobbyChannel) return;
+//     lobbyChannel.send(`Welcome to the server, ${member}`).catch(console.error);
+// });
 
 client.on('message', message => {
     const args = message.content.substring(PREFIX.length).split(' ');
