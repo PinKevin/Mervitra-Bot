@@ -49,6 +49,10 @@ client.on('message', message => {
         case 'clear-chat':
             commands.get('clear-chat').execute(message, args);
             break;
+        case 'k':
+        case 'kick':
+            commands.get('kick').execute(message, args);
+            break;
     }
 });
 
