@@ -33,7 +33,7 @@ client.on('ready', () => {
 client.on('message', message => {
     const args = message.content.substring(PREFIX.length).split(' ');
 
-    switch (args[0]) {
+    switch (args[0].toLowerCase()) {
         case 'p':
         case 'ping':
             commands.get('ping').execute(message);
